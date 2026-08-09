@@ -28,6 +28,10 @@ TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 BOARD_VENDOR := oneplus
 
 BUILD_BROKEN_DUP_RULES := true
+
+# OP3 is a non-A/B device (single system partition; no vendor_boot/dtbo).
+# AOSP 16 defaults AB_OTA_UPDATER to true unless explicitly set false.
+AB_OTA_UPDATER := false
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Assertions

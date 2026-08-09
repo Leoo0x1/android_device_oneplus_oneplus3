@@ -477,9 +477,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
-# Verity
+# Verity (verity.mk removed in Android 16; PRODUCT_SYSTEM_VERITY_PARTITION still consumed
+# by build/make/core)
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
-$(call inherit-product, build/target/product/verity.mk)
 
 # Vibrator
 PRODUCT_PACKAGES += \
