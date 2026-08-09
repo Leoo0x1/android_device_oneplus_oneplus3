@@ -127,3 +127,11 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
 endif
+
+# A16 removed the in-build kernel step. Provide the msm8996 HAL kernel headers
+# the qcom-caf HALs expect at KERNEL_OBJ/usr (display/media need usr/include).
+KERNEL_OBJ := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
+$(KERNEL_OBJ)/usr:
+	$(hide) rm -rf $(KERNEL_OBJ)/usr
+	$(hide) mkdir -p $(KERNEL_OBJ)
+	$(MAKE) -C kernel/oneplus/msm8996 O=$(KERNEL_OBJ) ARCH=arm64 CROSS_COMPILE=aarch64-linux-android- headers_install INSTALL_HDR_PATH=$(KERNEL_OBJ)/usr
