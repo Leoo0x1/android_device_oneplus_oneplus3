@@ -225,5 +225,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 # inherit from the proprietary version
 -include vendor/oneplus/oneplus3/BoardConfigVendor.mk
 
-# Build kernel in-tree (PATH A: reactivate legacy make kernel build for KERNEL_OBJ/usr)
-include vendor/lineage/build/tasks/kernel.mk
