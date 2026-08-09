@@ -97,7 +97,7 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_CHARACTERISTICS := nosdcard
 
 # Alipay
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
@@ -105,8 +105,6 @@ PRODUCT_BOOT_JARS += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audiod \
-    audio.a2dp.default \
     audio.primary.msm8996 \
     audio.r_submix.default \
     audio.usb.default \
@@ -157,11 +155,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
 # ANT+
-PRODUCT_PACKAGES += \
-    AntHalService
+PRODUCT_PACKAGES += 
 
 # Bluetooth
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     android.hardware.bluetooth@1.0.vendor
 
 # Camera
@@ -169,23 +166,17 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     libgui_vendor \
-    libstdc++.vendor \
     vendor.qti.hardware.camera.device@1.0
 
 # Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    cneapiclient \
-    com.quicinc.cne \
-    services-ext
+PRODUCT_PACKAGES += 
 
 # Display/Graphics
 PRODUCT_PACKAGES += \
-    copybit.msm8996 \
     gralloc.msm8996 \
     hwcomposer.msm8996 \
     memtrack.msm8996 \
     libdisplayconfig \
-    liboverlay \
     libqdMetaData.system \
     libtinyxml \
     android.hardware.graphics.allocator@2.0-impl \
@@ -194,10 +185,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    android.hardware.configstore@1.0-service \
     android.hardware.broadcastradio@1.0-impl \
-    vendor.display.color@1.0-service \
-    vendor.display.color@1.0-impl
+    vendor.display.color@1.0-service 
 
 # Display calibration
 PRODUCT_PACKAGES += \
@@ -206,15 +195,13 @@ PRODUCT_PACKAGES += \
     qdcm_calib_data_samsung_s6e3fa5_1080p_cmd_mode_dsi_panel.xml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    OneplusDoze
+PRODUCT_PACKAGES += 
 
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.3.vendor \
-    android.hardware.drm@1.4-service.clearkey
+    android.hardware.drm@1.3.vendor 
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -261,9 +248,7 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor
 
 # IPv6
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
+PRODUCT_PACKAGES += 
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -285,8 +270,7 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oneplus3 \
 
 # Lineage hardware
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+PRODUCT_PACKAGES += 
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -310,24 +294,14 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # Network
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     android.system.net.netd@1.1.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
-    NQNfcNci \
-    libnqnfc-nci \
-    libnqnfc_nci_jni \
-    nfc_nci.nqx.default \
     libp61-jcop-kit \
-    com.nxp.nfc.nq \
-    com.nxp.nfc.nq.xml \
-    nqnfcee_access.xml \
-    nqnfcse_access.xml \
     Tag \
-    com.android.nfc_extras \
-    vendor.nxp.hardware.nfc@2.0-service \
-    nfc_nci.nqx.default.hw
+    com.android.nfc_extras 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-mtp_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-mtp_default.conf \
@@ -336,17 +310,8 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libextmedia_jni \
     libmm-omxcore \
-    libOmxAacEnc \
-    libOmxAmrEnc \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxG711Enc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
     libstagefrighthw
 
 # Power
@@ -363,7 +328,7 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-full-v28.so
 
 # Qualcomm
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     libqti_vndfwk_detect
 
 PRODUCT_COPY_FILES += \
@@ -371,7 +336,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # QMI
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     libjson
 
 PRODUCT_COPY_FILES += \
@@ -402,11 +367,11 @@ PRODUCT_PACKAGES += \
     RcsService
 
 # Recovery
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     librecovery_updater_op3
 
 # RenderScript HAL
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     android.hardware.renderscript@1.0-impl
 
 # RIL
@@ -446,7 +411,7 @@ PRODUCT_BOOT_JARS += \
     telephony-ext
 
 # Tethering
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     TetheringConfigOverlay
 
 # Thermal
@@ -460,27 +425,22 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-vr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-vr.conf
 
 # Tri-state-key
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += 
     KeyHandler
 
 # USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic
+PRODUCT_PACKAGES += 
 
 # Verity (verity.mk removed in Android 16; PRODUCT_SYSTEM_VERITY_PARTITION still consumed
 # by build/make/core)
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
+PRODUCT_PACKAGES += 
 
 # VR
-PRODUCT_PACKAGES += \
-    vr.msm8996 \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service
+PRODUCT_PACKAGES += 
+    vr.msm8996 
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vr.high_performance.xml
@@ -489,14 +449,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
     libwpa_client \
     hostapd \
     wificond \
     wpa_supplicant \
-    wpa_supplicant.conf \
-    android.hardware.wifi@1.0-service
+    wpa_supplicant.conf 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
