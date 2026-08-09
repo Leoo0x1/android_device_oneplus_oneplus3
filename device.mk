@@ -97,7 +97,7 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_CHARACTERISTICS := nosdcard
 
 # Alipay
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
@@ -158,7 +158,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += 
 
 # Bluetooth
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor
 
 # Camera
@@ -294,7 +294,7 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # Network
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
 
 # NFC
@@ -328,7 +328,7 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v28/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-full-v28.so
 
 # Qualcomm
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     libqti_vndfwk_detect
 
 PRODUCT_COPY_FILES += \
@@ -336,7 +336,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # QMI
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     libjson
 
 PRODUCT_COPY_FILES += \
@@ -367,11 +367,11 @@ PRODUCT_PACKAGES += \
     RcsService
 
 # Recovery
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     librecovery_updater_op3
 
 # RenderScript HAL
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL
@@ -411,7 +411,7 @@ PRODUCT_BOOT_JARS += \
     telephony-ext
 
 # Tethering
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     TetheringConfigOverlay
 
 # Thermal
@@ -425,7 +425,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-vr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-vr.conf
 
 # Tri-state-key
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     KeyHandler
 
 # USB
@@ -439,7 +439,7 @@ PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 PRODUCT_PACKAGES += 
 
 # VR
-PRODUCT_PACKAGES += 
+PRODUCT_PACKAGES += \
     vr.msm8996 
 
 PRODUCT_COPY_FILES += \
