@@ -135,4 +135,4 @@ $(KERNEL_OBJ)/usr:
 	$(hide) rm -rf $(KERNEL_OBJ)/usr
 	$(hide) mkdir -p $(KERNEL_OBJ)
 	prebuilts/build-tools/linux-x86/bin/make -C kernel/oneplus/msm8996 O=$(PWD)/$(KERNEL_OBJ) ARCH=arm64 CROSS_COMPILE=$(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android- HOSTCC="$(PWD)/prebuilts/clang/host/linux-x86/clang-r563880c/bin/clang --ld-path=$(PWD)/prebuilts/clang/host/linux-x86/clang-r563880c/bin/ld.lld" headers_install INSTALL_HDR_PATH=$(PWD)/$(KERNEL_OBJ)/usr
-	$(hide) vendor/lineage/tools/clean_headers.sh $(KERNEL_OBJ)
+	$(hide) vendor/lineage/tools/clean_headers.sh $(abspath $(KERNEL_OBJ))
