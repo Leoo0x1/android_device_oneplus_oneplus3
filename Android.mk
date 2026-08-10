@@ -130,9 +130,13 @@ endif
 
 # A16 removed the in-build kernel step. Provide the msm8996 HAL kernel headers
 # the qcom-caf HALs expect at KERNEL_OBJ/usr (display/media need usr/include).
+# Stamp-file output: A16 ninja rejects DIRECTORY outputs on dirty re-evaluation
+# ("outputs should be files, not directories"), so the rule emits a file stamp.
+# The stamp gives the edge no inputs -> clean after first run -> never re-runs.
 KERNEL_OBJ := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
-$(KERNEL_OBJ)/usr:
+$(KERNEL_OBJ)/usr/include/.kernel_headers_stamp:
 	$(hide) rm -rf $(KERNEL_OBJ)/usr
 	$(hide) mkdir -p $(KERNEL_OBJ)
 	prebuilts/build-tools/linux-x86/bin/make -C kernel/oneplus/msm8996 O=$(PWD)/$(KERNEL_OBJ) ARCH=arm64 CROSS_COMPILE=$(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android- HOSTCC="$(PWD)/prebuilts/clang/host/linux-x86/clang-r563880c/bin/clang --ld-path=$(PWD)/prebuilts/clang/host/linux-x86/clang-r563880c/bin/ld.lld" headers_install INSTALL_HDR_PATH=$(PWD)/$(KERNEL_OBJ)/usr
 	$(hide) vendor/lineage/tools/clean_headers.sh $(abspath $(KERNEL_OBJ))
+	$(hide) touch $@
