@@ -134,4 +134,4 @@ KERNEL_OBJ := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
 $(KERNEL_OBJ)/usr:
 	$(hide) rm -rf $(KERNEL_OBJ)/usr
 	$(hide) mkdir -p $(KERNEL_OBJ)
-	$(MAKE) -C kernel/oneplus/msm8996 O=$(KERNEL_OBJ) ARCH=arm64 CROSS_COMPILE=aarch64-linux-android- headers_install INSTALL_HDR_PATH=$(KERNEL_OBJ)/usr
+	prebuilts/build-tools/linux-x86/bin/make -C kernel/oneplus/msm8996 O=$(KERNEL_OBJ) ARCH=arm64 CROSS_COMPILE=aarch64-linux-android- headers_install INSTALL_HDR_PATH=$(KERNEL_OBJ)/usr
