@@ -68,6 +68,9 @@ BOARD_RAMDISK_OFFSET     := 0x02200000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8996
 TARGET_KERNEL_CONFIG := lineageos_oneplus3_defconfig
+# 4.9 kernel is GCC-only: clang fails on old function-pointer signatures
+# (drivers/acpi/ec.c) and lld can't link the old vmlinux (emulation unknown).
+TARGET_KERNEL_CLANG_COMPILE := false
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
