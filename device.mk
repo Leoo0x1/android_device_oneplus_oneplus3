@@ -355,6 +355,15 @@ PRODUCT_PACKAGES += \
     init.oneplus3.rc \
     ueventd.qcom.rc
 
+# First-stage ramdisk: A16 first-stage init needs fstab + ueventd.rc inside the
+# boot ramdisk to mount /system (and configure /dev) before /vendor is available.
+PRODUCT_COPY_FILES += \
+    device/oneplus/oneplus3/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
+    device/oneplus/oneplus3/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.qcom \
+    device/oneplus/oneplus3/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/system/etc/fstab.qcom \
+    device/oneplus/oneplus3/rootdir/etc/ueventd.qcom.rc:$(TARGET_COPY_OUT_RAMDISK)/ueventd.rc \
+    device/oneplus/oneplus3/rootdir/etc/ueventd.qcom.rc:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/ueventd.rc
+
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
