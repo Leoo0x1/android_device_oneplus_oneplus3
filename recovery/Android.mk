@@ -8,7 +8,7 @@ endif
 
 LOCAL_C_INCLUDES := \
     bootable/recovery \
-    bootable/recovery/edify/include \
+    bootable/deprecated-ota/edify/include \
     bootable/recovery/otautil/include
 LOCAL_SRC_FILES := recovery_updater.cpp
 LOCAL_MODULE := librecovery_updater_op3
