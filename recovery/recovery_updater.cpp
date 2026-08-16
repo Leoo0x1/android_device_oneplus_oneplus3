@@ -38,7 +38,7 @@
 #define ALPHABET_LEN 256
 
 #ifdef USES_BOOTDEVICE_PATH
-#define MODEM_PART_PATH "/dev/block/bootdevice/by-name/modem"
+#define MODEM_PART_PATH "/dev/block/by-name/modem"
 #else
 #define MODEM_PART_PATH "/dev/block/platform/msm_sdcc.1/by-name/modem"
 #endif

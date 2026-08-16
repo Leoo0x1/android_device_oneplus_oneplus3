@@ -1,3 +1,9 @@
+# Graphics
+# EGL loader searches libEGL_<prop>.so for persist.graphics.egl / ro.hardware.egl /
+# ro.board.platform; blobs are *_adreno.so and ro.board.platform=msm8996 alone
+# makes SF abort ("couldn't find an OpenGL ES implementation") -> boot frozen on logo.
+ro.hardware.egl=adreno
+
 # Audio
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true

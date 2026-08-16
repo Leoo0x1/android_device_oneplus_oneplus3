@@ -27,6 +27,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
+# 4.4 kernel: no GKI userfaultfd GC support. Force UFFD GC off so the boot image
+# is built with CC (read barrier) to match the runtime default GC. Without this,
+# soong"s "default" path picks -Xgc:CMC for the boot image on kernel <5.4, while
+# zygote runs CC -> boot.art fails ValidateOatFile read barrier mismatch -> no boot.
+PRODUCT_ENABLE_UFFD_GC := false
+
+
 $(call inherit-product, vendor/oneplus/oneplus3/oneplus3-vendor.mk)
 
 # Overlays
@@ -335,7 +342,8 @@ PRODUCT_PACKAGES += \
     libjson
 
 PRODUCT_COPY_FILES += \
-    system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    $(LOCAL_PATH)/configs/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    $(LOCAL_PATH)/configs/init.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.rc \
     system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # Ramdisk
@@ -437,7 +445,7 @@ PRODUCT_PACKAGES +=
 
 # Verity (verity.mk removed in Android 16; PRODUCT_SYSTEM_VERITY_PARTITION still consumed
 # by build/make/core)
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/by-name/system
 
 # Vibrator
 PRODUCT_PACKAGES += 

@@ -1,6 +1,18 @@
 soong_namespace {
 }
 
+// The stock A16 cgroups.json lists blkio/cpuset v1 controllers and a v2
+// freezer/memory hierarchy that this 4.4 kernel cannot provide, which makes
+// init's SetupCgroups fail fatally (reboot to bootloader). Ship a config
+// matching the kernel: cpu v1 (cpuacct needs /acct, read-only on this
+// system-as-root layout), controller-less cgroup v2 root.
+prebuilt_etc {
+    name: "oneplus3_cgroups",
+    src: "configs/cgroups.json",
+    filename: "cgroups.json",
+    overrides: ["cgroups.json"],
+}
+
 subdirs = [
     "liblight",
 ]
