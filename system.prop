@@ -11,7 +11,7 @@ ro.config.vc_call_vol_steps=7
 ro.charger.enable_suspend=true
 
 # FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/config
+ro.frp.pst=/dev/block/by-name/config
 
 # Graphics
 debug.gralloc.enable_fb_ubwc=1
