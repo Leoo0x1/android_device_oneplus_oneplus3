@@ -765,6 +765,7 @@ on post-fs-data
     load_persist_props
 
     start logd-reinit
+    start bootcap
 
     # Some existing vendor rc files use 'on load_persist_props_action' to know
     # when persist props are ready. These are difficult to change due to GRF,
@@ -1394,3 +1395,14 @@ on property:sys.snapshotctl.map=requested
 on property:sys.snapshotctl.unmap=requested
     exec - root root system -- /system/bin/snapshotctl unmap
     setprop sys.snapshotctl.unmap "finished"
+
+# --- DEBUG: capture boot hang state (unofficial bring-up) ---
+on property:sys.boot_completed=1
+    setprop debug.bootcap.done 1
+
+service bootcap /system/bin/sh -c 'i=0; while [ $i -lt 12 ]; do sleep 30; i=$((i+1)); if [ "$(getprop sys.boot_completed)" = "1" ]; then exit 0; fi; mkdir -p /data/debug; logcat -d -v threadtime > /data/debug/logcat.$i.txt 2>&1; ps -A -o PID,NAME > /data/debug/ps.$i.txt 2>&1; cat /proc/*/stack > /data/debug/stacks.$i.txt 2>&1; done'
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
