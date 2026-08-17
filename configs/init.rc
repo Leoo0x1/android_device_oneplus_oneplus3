@@ -1400,7 +1400,7 @@ on property:sys.snapshotctl.unmap=requested
 on property:sys.boot_completed=1
     setprop debug.bootcap.done 1
 
-service bootcap /system/bin/sh -c 'i=0; while [ $i -lt 12 ]; do sleep 30; i=$((i+1)); if [ "$(getprop sys.boot_completed)" = "1" ]; then exit 0; fi; mkdir -p /data/debug; logcat -d -v threadtime > /data/debug/logcat.$i.txt 2>&1; ps -A -o PID,NAME > /data/debug/ps.$i.txt 2>&1; cat /proc/*/stack > /data/debug/stacks.$i.txt 2>&1; done'
+service bootcap /system/bin/bootcap.sh
     class late_start
     user root
     group root

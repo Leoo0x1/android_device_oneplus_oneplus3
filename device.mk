@@ -344,6 +344,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
     $(LOCAL_PATH)/configs/init.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/hw/init.rc \
+    $(LOCAL_PATH)/configs/bootcap.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/bootcap.sh \
     system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # Ramdisk
