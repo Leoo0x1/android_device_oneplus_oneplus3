@@ -476,3 +476,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/move_wifi_data.sh:system/bin/move_wifi_data.sh \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+
+# Unofficial bring-up: bake the workstation adb key into /adb_keys so recovery
+# adbd (ro.adb.secure=1) accepts our host without on-screen confirmation.
+PRODUCT_ADB_KEYS := $(LOCAL_PATH)/keys/adbkey.pub
