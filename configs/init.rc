@@ -705,6 +705,8 @@ on property:ro.product.cpu.abilist64=* && property:bootreceiver.enable=1
     write /sys/kernel/tracing/instances/bootreceiver/events/error_report/error_report_end/enable 1
 
 on post-fs-data
+    # DEBUG: start bootcap as early as /data is writable (unofficial bring-up)
+    start bootcap
 
     # Start checkpoint before we touch data
     exec - system system -- /system/bin/vdc checkpoint prepareCheckpoint
@@ -765,7 +767,6 @@ on post-fs-data
     load_persist_props
 
     start logd-reinit
-    start bootcap
 
     # Some existing vendor rc files use 'on load_persist_props_action' to know
     # when persist props are ready. These are difficult to change due to GRF,
