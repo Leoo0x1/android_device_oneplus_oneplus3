@@ -39,3 +39,9 @@ ro.surface_flinger.vsync_event_phase_offset_ns=2000000
 ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.max_virtual_display_dimension=4096
+
+# Kernel 4.4 has no eBPF; bpfloader cannot load programs, so lmkd blocks
+# forever waiting for bpf.progs_loaded. Tell lmkd BPF is done so it
+# falls back to the legacy minfree / in-kernel lowmemorykiller path
+# (CONFIG_ANDROID_LOW_MEMORY_KILLER=y).
+bpf.progs_loaded=true
