@@ -703,9 +703,12 @@ vendor/lib/libqmi_cci.so|a921e84ec500f7cfb7fe88a4ffba149581410a44
 vendor/lib64/libqmi_cci.so|411a074dc765fb263bec50531ce5c408dd72388f
 
 # Radio
--app/datastatusnotification/datastatusnotification.apk
--app/embms/embms.apk
--app/QtiTelephonyService/QtiTelephonyService.apk
+# Option1: disabled (crash-loops against A16 framework)
+#-app/datastatusnotification/datastatusnotification.apk
+# Option1: disabled (crash-loops against A16 framework)
+#-app/embms/embms.apk
+# Option1: disabled (crash-loops against A16 framework)
+#-app/QtiTelephonyService/QtiTelephonyService.apk
 etc/permissions/embms.xml
 etc/permissions/lpa.xml
 etc/permissions/qcnvitems.xml
@@ -716,7 +719,8 @@ framework/qcnvitems.jar
 framework/qcrilhook.jar
 framework/QtiTelephonyServicelibrary.jar
 framework/uimlpalibrary.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+# Option1: disabled (crash-loops against A16 framework)
+#-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/adpl
 vendor/bin/ATFWD-daemon
 vendor/bin/netmgrd
@@ -773,8 +777,10 @@ vendor/bin/hw/vendor.oneplus.hardware.param@1.0-service
 vendor/etc/init/vendor.oneplus.hardware.param@1.0-service.rc
 
 # Radio - IMS
--app/imssettings/imssettings.apk
--app/uceShimService/uceShimService.apk
+# Option1: disabled (crash-loops against A16 framework)
+#-app/imssettings/imssettings.apk
+# Option1: disabled (crash-loops against A16 framework)
+#-app/uceShimService/uceShimService.apk
 lib64/lib-imscamera.so
 lib64/lib-imsvideocodec.so
 lib64/lib-imsvt.so

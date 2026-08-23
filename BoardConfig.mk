@@ -59,7 +59,10 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff loop.max_part=7 androidboot.boot_devices=soc/624000.ufshc androidboot.bootdevice=soc/624000.ufshc
+# boot_devices (plural) is used by first-stage init for fstab paths -> needs "soc/" prefix.
+# bootdevice (singular) feeds the /dev/block/bootdevice symlink (/dev/block/platform/soc/$prop)
+# and /sys/devices/soc/$prop writes -> must NOT have the "soc/" prefix.
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff loop.max_part=7 androidboot.boot_devices=soc/624000.ufshc androidboot.bootdevice=624000.ufshc
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive   # bring-up: re-enable enforcing after boot + sepolicy rules land
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096

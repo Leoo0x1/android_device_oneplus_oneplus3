@@ -164,7 +164,9 @@ service vendor.dashd /vendor/bin/dashd
     group system
     writepid /dev/cpuset/system-background/tasks
 
+# Option1: disabled - fails to link libstdc++.so
 service remosaic_daemon /vendor/bin/remosaic_daemon
-    class late_start
+    class none
+    disabled
     user camera
     writepid /dev/cpuset/system-background/tasks
